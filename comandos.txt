@@ -1,0 +1,21 @@
+#Estructura Node
+npm init -y 
+
+#Librerias
+npm install sequelize mysql2
+#Librerias
+npm install sequelize-cli --save-dev 
+#Estructura Proyecto
+npx sequelize-cli init 
+
+npx sequelize-cli model:generate --name Usuario --attributes nombre:string,correo:string,telefono:string
+
+npx sequelize-cli model:generate --name Libro --attributes titulo:string,autor:string,aniopublic:integer,stock:integer
+
+npx sequelize-cli model:generate --name Prestamo --attributes usuario_id:integer,libro_id:integer,fecha_prestamo:date,fechadevolucion:date,estado:string
+
+
+
+
+
+npx sequelize-cli db:migrate 

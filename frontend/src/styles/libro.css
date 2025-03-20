@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(53, 162, 64);
+}
+
+
+.titulo{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-left: 20%;
+}
