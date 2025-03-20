@@ -14,7 +14,7 @@ function Prestamo() {
     return (
         <div className="todo d-flex justify-content-center">
             <div className="container mt-5">
-                <h1 className="mb-4 text-center titulo">Lista de libros</h1>
+                <h1 className="mb-4 text-center titulo">Lista de prestamos</h1>
                 <table className="table table-dark table-striped">
                     <thead>
                         <tr>

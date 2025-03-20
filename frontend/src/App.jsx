@@ -6,6 +6,7 @@ import Libro from './components/Libro';
 import Prestamo from './components/Prestamo';
 import CrearUsuario from './components/CrearUsuario';
 import CrearLibro from './components/CrearLibro';
+import CrearPrestamo from './components/CrearPrestamo';
 import '../src/App.css'; 
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/libros" element={<Libro />} />
           <Route path="/crearusuario" element={<CrearUsuario />} />
           <Route path="/crearlibro" element={<CrearLibro />} />
+          <Route path="/crearprestamo" element={<CrearPrestamo />} />
           <Route path="/prestamo" element={<Prestamo />} />
         </Routes>
        </div>

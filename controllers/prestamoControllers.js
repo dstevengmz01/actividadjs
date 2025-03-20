@@ -14,7 +14,7 @@ class PrestamoController
     static async crearPrestamo(req, res) {
         try {
             let { usuario_id,libro_id,fecha_prestamo,fechadevolucion,estado } = req.body;
-            let reserva = await PrestamoService.crearLibro(usuario_id,libro_id,fecha_prestamo,fechadevolucion,estado);
+            let reserva = await PrestamoService.crearPrestamo(usuario_id,libro_id,fecha_prestamo,fechadevolucion,estado);
             res.json(reserva);
         } catch (e) {
             res.status(500).json({ error: "Error en la petición" });

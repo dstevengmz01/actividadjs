@@ -14,8 +14,4 @@ npx sequelize-cli model:generate --name Libro --attributes titulo:string,autor:s
 
 npx sequelize-cli model:generate --name Prestamo --attributes usuario_id:integer,libro_id:integer,fecha_prestamo:date,fechadevolucion:date,estado:string
 
-
-
-
-
 npx sequelize-cli db:migrate 

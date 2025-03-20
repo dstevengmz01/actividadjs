@@ -31,8 +31,14 @@ function Menu() {
                 <Link className="nav-link" to="/crearlibro">Crear</Link>
                 </ul>
               </li>
-              <li className="nav-item">
-              <Link className="nav-link" to="/prestamo">Prestamo</Link>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Prestamo
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <Link className="nav-link" to="/prestamo">Listar</Link>
+                <Link className="nav-link" to="/crearprestamo">Crear</Link>
+                </ul>
               </li>
             </ul>
           </div>
