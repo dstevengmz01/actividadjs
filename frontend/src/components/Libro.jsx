@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/libro.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Swal from "sweetalert2";
+import EditarLibro from '../components/EditarLibro';
 
 function Libro() {
+    const navegar = useNavigate();
     const [libro, setLibro] = useState([]);
 
     useEffect(() => {
@@ -13,7 +16,7 @@ function Libro() {
             .then(data => setLibro(data));
     }, []);
 
-      const EliminarLibro = (id) => {
+    const EliminarLibro = (id) => {
             Swal.fire({
                 title: "¿Estás seguro?",
                 text: "Deseas eliminar este libro",
@@ -41,6 +44,7 @@ function Libro() {
             });
         };
 
+
     return (
         <div className="todo d-flex justify-content-center align-items-center ">
             <div className="container mt-5">
@@ -65,7 +69,11 @@ function Libro() {
                                 <td>{libro.aniopublic}</td>
                                 <td>{libro.stock}</td>
                                 <td>
-                                    <button className="btn btn-warning mx-2">Editar</button>
+                                <button 
+                                    className="btn btn-warning mx-2"
+                                    onClick={() => navegar(`/editar/${libro.id}`)}>
+                                    Editar
+                                </button>
                                     <button 
                                         className="btn btn-danger" 
                                         onClick={() => EliminarLibro(libro.id)}>

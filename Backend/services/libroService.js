@@ -3,6 +3,16 @@ const { Libro } = require('../models');
 
 class LibroService 
 {
+    static async BuscarLibro(id) {
+        try {
+            return await Libro.findByPk(id);
+        } catch (error) {
+            console.log("Error al obtener el libro por ID:", error);
+            throw error;
+        }
+    }
+
+
     static async obtenerLibro() {
         try {
             return await Libro.findAll();

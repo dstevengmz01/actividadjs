@@ -2,6 +2,23 @@ const libroService = require("../services/libroService");
 
 class LibroController 
 {
+    static async BuscarLibro(req, res) {
+        try {
+            const id = req.params.id;
+            const libro = await libroService.BuscarLibro(id);
+    
+            if (!libro) {
+                return res.status(404).json({ mensaje: 'Libro no encontrado' });
+            }
+    
+            res.json(libro);
+        } catch (error) {
+            res.status(500).json({ mensaje: 'Error al obtener el libro', error });
+        }
+    }
+
+
+
     static async listarLibro(req, res) {
         try {
             let lista = await libroService.obtenerLibro();
