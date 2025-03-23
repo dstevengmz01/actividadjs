@@ -32,7 +32,11 @@ function ActualizarUsuario() {
       Swal.fire("El teléfono debe tener entre 8 y 10 dígitos");
       return;
     }
-
+    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!correoValido.test(correo)) {
+        Swal.fire("Ingrese un correo electrónico válido");
+        return;
+      }
 
     try {
       await fetch(`http://localhost:2100/api/usuario/${id}`, {
