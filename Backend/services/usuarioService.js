@@ -3,6 +3,16 @@ const { Usuario } = require('../models');
 
 class UsuarioService 
 {
+
+    static async BuscarUsuario(id) {
+        try {
+            return await Usuario.findByPk(id);
+        } catch (error) {
+            console.log("Error al obtener el Usuario por ID:", error);
+            throw error;
+        }
+    }
+
     static async obtenerUsuario() {
         try {
             return await Usuario.findAll();

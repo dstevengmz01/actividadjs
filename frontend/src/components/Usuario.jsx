@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Swal from "sweetalert2";
-
+import EditarUsuario from '../components/EditarUsuario';
 function Usuario() {
+    const navegar = useNavigate();
     const [usuario, setUsuario] = useState([]);
 
     useEffect(() => {
@@ -62,7 +64,11 @@ function Usuario() {
                                 <td>{usuario.correo}</td>
                                 <td>{usuario.telefono}</td>
                                 <td>
-                                    <button className='btn btn-warning mx-2'>Editar</button>
+                                <button 
+                                    className="btn btn-warning mx-2"
+                                    onClick={() => navegar(`/editarusuario/${usuario.id}`)}>
+                                    Editar
+                                </button>
                                     <button 
                                         className="btn btn-danger" 
                                         onClick={() => EliminarUsuario(usuario.id)}>

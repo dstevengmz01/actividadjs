@@ -2,6 +2,21 @@ const usuarioService = require("../services/usuarioService");
 
 class UsuarioController 
 {
+    static async BuscarUsuario(req, res) {
+        try {
+            const id = req.params.id;
+            const usuario = await usuarioService.BuscarUsuario(id);
+    
+            if (!usuario) {
+                return res.status(404).json({ mensaje: 'Usuario no encontrado' });
+            }
+            res.json(usuario);
+        } catch (error) {
+            res.status(500).json({ mensaje: 'Error al obtener el Usuario', error });
+        }
+    }
+
+
     static async listarUsuario(req, res) {
         try {
             let lista = await usuarioService.obtenerUsuario();
