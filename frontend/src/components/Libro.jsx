@@ -44,7 +44,6 @@ function Libro() {
             });
         };
 
-
     return (
         <div className="todo d-flex justify-content-center align-items-center ">
             <div className="container mt-5">
