@@ -154,8 +154,8 @@ function Prestamo() {
                             onChange={handleChange}
                         >
                             <option value="" disabled>Seleccione un estado</option>
-                            <option value="1">Préstamo</option>
-                            <option value="2">Devuelto</option>
+                            <option value="Prestado">Préstamo</option>
+                            <option value="Devuelto">Devuelto</option>
                         </select>
                     </div>
 
