@@ -4,6 +4,7 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Prestamo extends Model {
+    
     static associate(models) {
       Prestamo.belongsTo(models.Usuario, {
       foreignKey: 'usuario_id',

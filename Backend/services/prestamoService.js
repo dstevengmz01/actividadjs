@@ -3,6 +3,15 @@ const { Prestamo } = require('../models');
 
 class PrestamoService 
 {
+    static async BuscarPrestamo(id) {
+        try {
+            return await Prestamo.findByPk(id);
+        } catch (error) {
+            console.log("Error al obtener el Prestamo por ID:", error);
+            throw error;
+        }
+    }
+
     static async obtenerPrestamo() {
         try {
             return await Prestamo.findAll();

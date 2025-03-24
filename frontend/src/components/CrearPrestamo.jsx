@@ -108,9 +108,6 @@ function Prestamo() {
                             ))}
                         </select>
                     </div>
-
-                    <br />
-
                     <label>Libro:</label>
                     <div className="form-group">
                         <select name="libro_id" className="form-select" value={formData.libro_id} onChange={handleChange}>
@@ -130,8 +127,7 @@ function Prestamo() {
                             name="fecha_prestamo"
                             className="form-control"
                             value={formData.fecha_prestamo}
-                            onChange={handleChange}
-                        />
+                            onChange={handleChange}/>
                     </div>
 
                     <div className="form-group">
@@ -141,8 +137,7 @@ function Prestamo() {
                             name="fechadevolucion"
                             className="form-control"
                             value={formData.fechadevolucion}
-                            onChange={handleChange}
-                        />
+                            onChange={handleChange}/>
                     </div>
 
                     <div className="form-group">
@@ -154,7 +149,7 @@ function Prestamo() {
                             onChange={handleChange}
                         >
                             <option value="" disabled>Seleccione un estado</option>
-                            <option value="Prestado">Préstamo</option>
+                            <option value="Prestado">Prestado</option>
                             <option value="Devuelto">Devuelto</option>
                         </select>
                     </div>

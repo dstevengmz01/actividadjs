@@ -2,6 +2,20 @@ const PrestamoService = require("../services/prestamoService");
 
 class PrestamoController 
 {
+    static async BuscarPrestamo(req, res) {
+        try {
+            const id = req.params.id;
+            const prestamo = await PrestamoService.BuscarPrestamo(id);
+            if (!prestamo) 
+            {
+                return res.status(404).json({ mensaje: 'Prestamo no encontrado' });
+            }
+            res.json(prestamo);
+        } catch (error) {
+            res.status(500).json({ mensaje: 'Error al obtener el Prestamo', error });
+        }
+    }
+
     static async listarPrestamo(req, res) {
         try {
             let lista = await PrestamoService.obtenerPrestamo();

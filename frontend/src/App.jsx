@@ -9,6 +9,7 @@ import CrearLibro from './components/CrearLibro';
 import CrearPrestamo from './components/CrearPrestamo';
 import EditarLibro from './components/EditarLibro';
 import EditarUsuario from './components/EditarUsuario';
+import EditarPrestamo from './components/EditarPrestamo';
 import '../src/App.css'; 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="/editar/:id" element={<EditarLibro />} />
           <Route path="/editarusuario/:id" element={<EditarUsuario />} />
           <Route path="/crearprestamo" element={<CrearPrestamo />} />
+          <Route path="/editarprestamo/:id" element={<EditarPrestamo />} />
           <Route path="/prestamo" element={<Prestamo />} />
         </Routes>
        </div>

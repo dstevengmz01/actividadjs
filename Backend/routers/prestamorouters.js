@@ -6,5 +6,5 @@ router.get('/prestamo', Prestamo.listarPrestamo);
 router.post('/prestamo', Prestamo.crearPrestamo);
 router.delete('/prestamo/:id', Prestamo.eliminarPrestamo);
 router.put('/prestamo/:id', Prestamo.actualizarPrestamo);
-
+router.get('/prestamo/:id', Prestamo.BuscarPrestamo);
 module.exports = router;

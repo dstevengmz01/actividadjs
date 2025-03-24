@@ -1,15 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Swal from "sweetalert2";
 
 function Prestamo() {
+    const [usuarios, setUsuarios] = useState([]);
+    const [libros, setLibros] = useState([]);
+    const navegar = useNavigate();
     const [prestamo, setPrestamo] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:2100/api/prestamo')
             .then(response => response.json())
             .then(data => setPrestamo(data));
+
+    fetch('http://localhost:2100/api/usuario')
+    .then(response => response.json())
+    .then(data => setUsuarios(data));
+
+
+    fetch('http://localhost:2100/api/libro')
+    .then(response => response.json())
+    .then(data => setLibros(data));
     }, []);
 
     const EliminarPrestamo = (id) => {
@@ -39,7 +52,6 @@ function Prestamo() {
                     Swal.fire("Error al eliminar el Prestamo", error);
                 });
             };
-
     return (
         <div className="todo d-flex justify-content-center">
             <div className="container mt-5">
@@ -57,24 +69,35 @@ function Prestamo() {
                         </tr>
                     </thead>
                     <tbody>
-                        {prestamo.map(prestamo => (
-                            <tr key={prestamo.id}>
-                                <td>{prestamo.id}</td>
-                                <td>{prestamo.usuario_id}</td>
-                                <td>{prestamo.libro_id}</td>
-                                <td>{prestamo.fecha_prestamo}</td>
-                                <td>{prestamo.fechadevolucion}</td>
-                                <td>{prestamo.estado}</td>
-                                <td>
-                                    <button className="btn btn-warning mx-2">Editar</button>
-                                    <button 
-                                        className="btn btn-danger" 
-                                        onClick={() => EliminarPrestamo(prestamo.id)}>
-                                        Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        ))}
+                        {
+                        prestamo.map(prestamo => 
+                        {
+                            const usuario = usuarios.find(usuarios => usuarios.id === prestamo.usuario_id);
+                            const libro = libros.find(libros => libros.id === prestamo.libro_id);
+                                return (
+                                    <tr key={prestamo.id}>
+                                        <td>{prestamo.id}</td>
+                                        <td>{usuario ? usuario.nombre : "Desconocido"}</td>
+                                        <td>{libro ? libro.titulo : "Desconocido"}</td>
+                                        <td>{prestamo.fecha_prestamo}</td>
+                                        <td>{prestamo.fechadevolucion}</td>
+                                        <td>{prestamo.estado}</td>
+                                        <td>
+                                            <button 
+                                                className="btn btn-warning mx-2"
+                                                onClick={() => navegar(`/editarprestamo/${prestamo.id}`)}>
+                                                Editar
+                                            </button>
+                                            <button 
+                                                className="btn btn-danger" 
+                                                onClick={() => EliminarPrestamo(prestamo.id)}>
+                                                Eliminar
+                                            </button>
+                                        </td>
+                                    </tr>
+                                );
+                        })
+                        }
                     </tbody>
                 </table>
             </div>
